@@ -10,10 +10,8 @@
 <meta property="og:site_name" content="Сказка-читалка">
 <meta property="og:title" content="Сказка-читалка — как это работает">
 <meta property="og:description" content="Слово за словом, с транскрипцией и озвучкой. Несколько языков сразу. Легко, недорого, в рекордные сроки.">
-<meta property="og:image" content="https://aigulchik77.github.io/reklama-skazka/poster.jpg">
+<meta property="og:image" content="https://aigulchik77.github.io/skazka-promo/og.png">
 <meta property="og:url" content="https://aigulchik77.github.io/skazka-promo/">
-<meta property="og:video" content="https://aigulchik77.github.io/reklama-skazka/reklama.mp4">
-<meta property="og:video:type" content="video/mp4">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Infant:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -84,18 +82,6 @@ h1 .gold{color:var(--gold);font-style:italic}
 }
 .btn-ghost:hover{background:rgba(246,234,210,.08);border-color:var(--gold)}
 
-/* video */
-.video-wrap{
-  margin-top:52px;
-  background:linear-gradient(150deg,rgba(246,234,210,.08),rgba(246,234,210,.03));
-  border:1px solid rgba(246,234,210,.15);border-radius:26px;
-  padding:18px;box-shadow:0 30px 70px rgba(0,0,0,.45);
-  animation:float 6s ease-in-out infinite;
-}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
-.video-wrap video{display:block;width:100%;aspect-ratio:1/1;border-radius:18px;background:#000;object-fit:cover;cursor:pointer}
-.video-cap{display:flex;align-items:center;justify-content:center;gap:8px;padding:12px 0 2px;color:#f0cd8d;font-size:12.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
-
 /* sections */
 section{padding:88px 0}
 .sec-head{margin-bottom:44px}
@@ -157,6 +143,37 @@ section{padding:88px 0}
 footer{padding:40px 0 56px;text-align:center;color:#a08a63;font-size:12.5px;position:relative;z-index:1}
 footer b{color:var(--gold)}
 
+/* example: how it looks */
+.ex-grid{display:flex;flex-direction:column;gap:18px}
+.ex{
+  background:var(--card);color:var(--ink);
+  border-radius:22px;padding:26px 24px;
+  box-shadow:0 18px 44px rgba(0,0,0,.35);border:1px solid var(--line);
+}
+.ex-head{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.ex-flag{font-size:26px}
+.ex-lang{font-family:'Cormorant Infant',serif;font-size:22px;font-weight:700;flex:1 1 auto}
+.ex .spk{
+  flex:0 0 auto;width:44px;height:44px;border-radius:50%;
+  background:linear-gradient(135deg,var(--red),var(--red-2));
+  color:#fff;border:none;font-size:16px;cursor:pointer;
+  box-shadow:0 8px 20px rgba(192,57,43,.35);
+  transition:transform .2s ease,box-shadow .2s ease;
+}
+.ex .spk:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(192,57,43,.45)}
+.ex .spk.speaking{animation:pulse 1.2s infinite}
+.ex-words{display:flex;flex-wrap:wrap;gap:8px}
+.ex .w{
+  display:flex;flex-direction:column;gap:1px;
+  background:var(--card-2);border:1px solid var(--line);border-radius:10px;
+  padding:8px 11px;min-width:58px;
+}
+.ex .w-t{font-weight:800;font-size:14px;line-height:1.3}
+.ex .w-d{font-size:11px;color:var(--ink-2)}
+.ex .w-tr{font-size:11px;color:var(--gold);font-style:italic}
+.ex-full{margin-top:18px;font-size:15.5px;color:var(--ink-2);line-height:1.7}
+.ex-full span{color:var(--ink);font-weight:700}
+
 .rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
 .rv.in{opacity:1;transform:none}
 
@@ -178,14 +195,6 @@ footer b{color:var(--gold)}
       <a class="btn" href="#how">Как это работает</a>
       <a class="btn-ghost" href="https://wa.me/77057255717?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%20%D1%81%D0%BA%D0%B0%D0%B7%D0%BA%D1%83-%D1%87%D0%B8%D1%82%D0%B0%D0%BB%D0%BA%D1%83">Заказать</a>
     </div>
-
-    <div class="video-wrap">
-      <video id="promo" controls playsinline preload="metadata" poster="https://aigulchik77.github.io/reklama-skazka/poster.jpg" aria-label="Рекламное видео сказки-читалки">
-        <source src="https://aigulchik77.github.io/reklama-skazka/reklama.mp4" type="video/mp4">
-        Ваш браузер не поддерживает видео.
-      </video>
-      <div class="video-cap">▶ смотрите, как это работает</div>
-    </div>
   </div>
 </header>
 
@@ -206,6 +215,79 @@ footer b{color:var(--gold)}
         <h4>Шаг второй — беглое чтение без подглядок</h4>
         <p>Сразу после разбора вы читаете тот же фрагмент целиком, без перевода. Мозг мгновенно узнаёт все слова — как будто это ваш родной язык.</p>
         <span class="pill2">читаем свободно</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="example" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="tag">А вот как это выглядит</div>
+      <h2>Первое предложение сказки на четырёх языках</h2>
+      <p>Так читается любой отрывок: слово за словом, с транскрипцией и озвучкой. Нажмите кнопку ▶ и послушайте.</p>
+    </div>
+
+    <div class="ex-grid">
+      <div class="ex rv">
+        <div class="ex-head"><span class="ex-flag">🇮🇳</span><span class="ex-lang">Хинди</span><button class="spk" data-lang="hi" data-text="एक बार की बात है, एक छोटी लड़की अपनी माँ के साथ एक गाँव में रहती थी।" title="Прослушать">▶</button></div>
+        <div class="ex-words">
+          <div class="w"><span class="w-t">एक</span><span class="w-d">один</span><span class="w-tr">эк</span></div>
+          <div class="w"><span class="w-t">बार</span><span class="w-d">раз</span><span class="w-tr">баар</span></div>
+          <div class="w"><span class="w-t">की</span><span class="w-d">(о том)</span><span class="w-tr">ки</span></div>
+          <div class="w"><span class="w-t">बात</span><span class="w-d">дело</span><span class="w-tr">баат</span></div>
+          <div class="w"><span class="w-t">है</span><span class="w-d">есть</span><span class="w-tr">хэ</span></div>
+          <div class="w"><span class="w-t">एक</span><span class="w-d">одна</span><span class="w-tr">эк</span></div>
+          <div class="w"><span class="w-t">छोटी</span><span class="w-d">маленькая</span><span class="w-tr">чхоти</span></div>
+          <div class="w"><span class="w-t">लड़की</span><span class="w-d">девочка</span><span class="w-tr">ларки</span></div>
+          <div class="w"><span class="w-t">अपनी</span><span class="w-d">своей</span><span class="w-tr">апни</span></div>
+          <div class="w"><span class="w-t">माँ</span><span class="w-d">мамы</span><span class="w-tr">маа</span></div>
+          <div class="w"><span class="w-t">के साथ</span><span class="w-d">с</span><span class="w-tr">ке саатх</span></div>
+          <div class="w"><span class="w-t">एक</span><span class="w-d">одном</span><span class="w-tr">эк</span></div>
+          <div class="w"><span class="w-t">गाँव</span><span class="w-d">в деревне</span><span class="w-tr">гаанв</span></div>
+          <div class="w"><span class="w-t">में</span><span class="w-d">в</span><span class="w-tr">мэйн</span></div>
+          <div class="w"><span class="w-t">रहती थी</span><span class="w-d">жила</span><span class="w-tr">рахти тхи</span></div>
+        </div>
+        <p class="ex-full">«एक बार की बात है, एक छोटी लड़की अपनी माँ के साथ एक गाँव में रहती थी.»<br><span>Жила-была одна маленькая девочка со своей мамой в деревне.</span></p>
+      </div>
+
+      <div class="ex rv">
+        <div class="ex-head"><span class="ex-flag">🇬🇧</span><span class="ex-lang">Английский</span><button class="spk" data-lang="en" data-text="Once upon a time, a little girl lived with her mother in a village." title="Прослушать">▶</button></div>
+        <div class="ex-words">
+          <div class="w"><span class="w-t">Once upon a time</span><span class="w-d">жила-была</span><span class="w-tr">уонс эпон э тайм</span></div>
+          <div class="w"><span class="w-t">a little girl</span><span class="w-d">маленькая девочка</span><span class="w-tr">э литл гёрл</span></div>
+          <div class="w"><span class="w-t">lived</span><span class="w-d">жила</span><span class="w-tr">ливд</span></div>
+          <div class="w"><span class="w-t">with her mother</span><span class="w-d">со своей мамой</span><span class="w-tr">уиз хё мазэ</span></div>
+          <div class="w"><span class="w-t">in a village</span><span class="w-d">в деревне</span><span class="w-tr">ин э вилидж</span></div>
+        </div>
+        <p class="ex-full">«Once upon a time, a little girl lived with her mother in a village.»<br><span>Жила-была одна маленькая девочка со своей мамой в деревне.</span></p>
+      </div>
+
+      <div class="ex rv">
+        <div class="ex-head"><span class="ex-flag">🇹🇷</span><span class="ex-lang">Турецкий</span><button class="spk" data-lang="tr" data-text="Bir varmış bir yokmuş, bir köyde annesiyle birlikte küçük bir kız yaşarmış." title="Прослушать">▶</button></div>
+        <div class="ex-words">
+          <div class="w"><span class="w-t">Bir</span><span class="w-d">один</span><span class="w-tr">бир</span></div>
+          <div class="w"><span class="w-t">varmış</span><span class="w-d">был</span><span class="w-tr">вармыш</span></div>
+          <div class="w"><span class="w-t">bir yokmuş</span><span class="w-d">и не было</span><span class="w-tr">бир йокмуш</span></div>
+          <div class="w"><span class="w-t">bir köyde</span><span class="w-d">в одной деревне</span><span class="w-tr">бир кёйде</span></div>
+          <div class="w"><span class="w-t">annesiyle birlikte</span><span class="w-d">вместе с мамой</span><span class="w-tr">аннесийле бирликте</span></div>
+          <div class="w"><span class="w-t">küçük bir kız</span><span class="w-d">маленькая девочка</span><span class="w-tr">кючюк бир кыз</span></div>
+          <div class="w"><span class="w-t">yaşarmış</span><span class="w-d">жила</span><span class="w-tr">яшармыш</span></div>
+        </div>
+        <p class="ex-full">«Bir varmış bir yokmuş, bir köyde annesiyle birlikte küçük bir kız yaşarmış.»<br><span>Жила-была одна маленькая девочка со своей мамой в деревне.</span></p>
+      </div>
+
+      <div class="ex rv">
+        <div class="ex-head"><span class="ex-flag">🇮🇹</span><span class="ex-lang">Итальянский</span><button class="spk" data-lang="it" data-text="C'era una volta una bambina che viveva con sua madre in un villaggio." title="Прослушать">▶</button></div>
+        <div class="ex-words">
+          <div class="w"><span class="w-t">C'era</span><span class="w-d">жила-была</span><span class="w-tr">черра</span></div>
+          <div class="w"><span class="w-t">una volta</span><span class="w-d">однажды</span><span class="w-tr">уна вольта</span></div>
+          <div class="w"><span class="w-t">una bambina</span><span class="w-d">маленькая девочка</span><span class="w-tr">уна бамбина</span></div>
+          <div class="w"><span class="w-t">che viveva</span><span class="w-d">которая жила</span><span class="w-tr">ке вивева</span></div>
+          <div class="w"><span class="w-t">con sua madre</span><span class="w-d">со своей мамой</span><span class="w-tr">кон суа мадре</span></div>
+          <div class="w"><span class="w-t">in un villaggio</span><span class="w-d">в деревне</span><span class="w-tr">ин ун вилладжо</span></div>
+        </div>
+        <p class="ex-full">«C'era una volta una bambina che viveva con sua madre in un villaggio.»<br><span>Жила-была одна маленькая девочка со своей мамой в деревне.</span></p>
       </div>
     </div>
   </div>
@@ -275,17 +357,23 @@ const io = new IntersectionObserver((es) => {
 }, { threshold: .15 });
 document.querySelectorAll('.rv').forEach(el => io.observe(el));
 
-const promo = document.getElementById('promo');
-if (promo){
-  promo.muted = true;
-  promo.playsInline = true;
-  const tryPlay = () => { const p = promo.play(); if (p && p.catch) p.catch(()=>{}); };
-  tryPlay();
-  promo.addEventListener('click', () => {
-    promo.muted = false;
-    promo.controls = true;
-  });
+let audio = null;
+function stop(){
+  if (audio){ audio.pause(); audio = null; }
+  document.querySelectorAll('.spk.speaking').forEach(b => b.classList.remove('speaking'));
 }
+document.querySelectorAll('.spk').forEach(btn => {
+  btn.addEventListener('click', () => {
+    stop();
+    const q = encodeURIComponent(btn.dataset.text);
+    const url = 'https://translate.google.com/translate_tts?ie=UTF-8&q=' + q + '&tl=' + btn.dataset.lang + '&client=tw-ob&total=1&idx=0';
+    btn.classList.add('speaking');
+    audio = new Audio(url);
+    audio.onended = () => btn.classList.remove('speaking');
+    audio.onerror = () => btn.classList.remove('speaking');
+    audio.play().catch(() => btn.classList.remove('speaking'));
+  });
+});
 </script>
 </body>
 </html>
