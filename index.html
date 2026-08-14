@@ -365,10 +365,8 @@ function stop(){
 document.querySelectorAll('.spk').forEach(btn => {
   btn.addEventListener('click', () => {
     stop();
-    const q = encodeURIComponent(btn.dataset.text);
-    const url = 'https://translate.google.com/translate_tts?ie=UTF-8&q=' + q + '&tl=' + btn.dataset.lang + '&client=tw-ob&total=1&idx=0';
     btn.classList.add('speaking');
-    audio = new Audio(url);
+    audio = new Audio('audio/' + btn.dataset.lang + '.mp3');
     audio.onended = () => btn.classList.remove('speaking');
     audio.onerror = () => btn.classList.remove('speaking');
     audio.play().catch(() => btn.classList.remove('speaking'));
