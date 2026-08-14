@@ -14,7 +14,7 @@
 <meta property="og:url" content="https://aigulchik77.github.io/skazka-promo/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Infant:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Infant:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Manrope:wght@400;500;600;700;800&family=Noto+Serif+Devanagari:wght@500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#221309;
@@ -38,7 +38,7 @@ body{
     radial-gradient(700px 500px at -12% 40%, rgba(47,107,67,.22), transparent 55%),
     var(--bg);
   color:var(--cream);
-  font-family:'Manrope',sans-serif;
+  font-family:'Manrope','Noto Sans Devanagari',sans-serif;
   line-height:1.65;
   overflow-x:hidden;
 }
@@ -48,8 +48,29 @@ body::before{
 }
 .wrap{position:relative;z-index:1;max-width:620px;margin:0 auto;padding:0 22px}
 
+/* language switcher */
+.langs{
+  position:fixed;top:16px;left:50%;transform:translateX(-50%);
+  z-index:10;display:flex;gap:3px;
+  background:rgba(14,8,3,.62);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border:1px solid rgba(246,234,210,.18);
+  border-radius:999px;padding:5px;
+  box-shadow:0 12px 30px rgba(0,0,0,.4);
+  animation:drop .7s ease backwards;
+}
+@keyframes drop{from{opacity:0;transform:translateX(-50%) translateY(-14px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+.langs button{
+  border:none;cursor:pointer;background:transparent;color:#d8c6a5;
+  font-family:'Manrope','Noto Sans Devanagari',sans-serif;
+  font-size:12.5px;font-weight:700;letter-spacing:.04em;
+  padding:8px 15px;border-radius:999px;transition:background .2s,color .2s;
+}
+.langs button:hover{color:#f6ead2}
+.langs button.active{background:linear-gradient(150deg,var(--gold),#b9822a);color:#2f1d12;box-shadow:0 6px 16px rgba(224,168,62,.35)}
+
 /* hero */
-header{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:70px 0}
+header{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:96px 0 70px}
 .badge{
   display:inline-flex;align-items:center;gap:10px;align-self:flex-start;
   background:var(--red);color:#fff;font-size:12px;font-weight:800;
@@ -59,10 +80,11 @@ header{min-height:100vh;display:flex;flex-direction:column;justify-content:cente
 .badge .dot{width:8px;height:8px;border-radius:50%;background:#ffd9a0;animation:pulse 1.8s infinite}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
 h1{
-  font-family:'Cormorant Infant',serif;
+  font-family:'Cormorant Infant','Noto Serif Devanagari',serif;
   font-size:clamp(40px,8.5vw,64px);line-height:1.04;font-weight:600;
   letter-spacing:-.01em;
 }
+html[lang="hi"] h1{font-size:clamp(34px,7vw,56px)}
 h1 .red{color:var(--red);font-style:italic}
 h1 .gold{color:var(--gold);font-style:italic}
 .lead{max-width:44ch;font-size:clamp(15px,1.5vw,18px);color:#d8c6a5;margin:22px 0 30px}
@@ -86,7 +108,7 @@ h1 .gold{color:var(--gold);font-style:italic}
 section{padding:88px 0}
 .sec-head{margin-bottom:44px}
 .sec-head .tag{color:var(--gold);font-size:12px;font-weight:800;letter-spacing:.24em;text-transform:uppercase;margin-bottom:12px}
-.sec-head h2{font-family:'Cormorant Infant',serif;font-size:clamp(32px,6vw,46px);font-weight:600;line-height:1.1;margin-bottom:12px}
+.sec-head h2{font-family:'Cormorant Infant','Noto Serif Devanagari',serif;font-size:clamp(32px,6vw,46px);font-weight:600;line-height:1.1;margin-bottom:12px}
 .sec-head p{color:#d8c6a5;font-size:15.5px}
 
 /* steps */
@@ -99,10 +121,10 @@ section{padding:88px 0}
 .step::before{
   counter-increment:s;content:"0" counter(s);
   position:absolute;left:22px;top:50%;transform:translateY(-50%);
-  font-family:'Cormorant Infant',serif;font-size:52px;font-weight:700;
+  font-family:'Cormorant Infant','Noto Serif Devanagari',serif;font-size:52px;font-weight:700;
   color:var(--gold);line-height:1;
 }
-.step h4{font-size:18px;font-weight:800;margin-bottom:6px}
+.step h4{font-size:18px;font-weight:800;margin-bottom:6px;font-family:'Manrope','Noto Sans Devanagari',sans-serif}
 .step p{color:var(--ink-2);font-size:14.5px}
 .step .pill2{display:inline-block;margin-top:12px;background:var(--paper2,#efe5cc);color:var(--red);font-size:11.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:6px 13px;border-radius:999px}
 
@@ -128,14 +150,14 @@ section{padding:88px 0}
 }
 .price > *{position:relative}
 .price .fire{font-size:38px}
-.price h3{font-family:'Cormorant Infant',serif;font-size:clamp(28px,5vw,38px);font-weight:600;color:#ffe9c4;margin:10px 0 8px}
+.price h3{font-family:'Cormorant Infant','Noto Serif Devanagari',serif;font-size:clamp(28px,5vw,38px);font-weight:600;color:#ffe9c4;margin:10px 0 8px}
 .price p{color:#c9b99a;font-size:14.5px;max-width:38ch;margin:0 auto 26px}
 .price .old{color:#a08a63;font-size:14px;text-decoration:line-through;margin-right:10px}
 .price .new{color:#ffe9c4;font-size:30px;font-weight:800}
 
 /* final cta */
 .final{text-align:center}
-.final h2{font-family:'Cormorant Infant',serif;font-size:clamp(30px,6vw,44px);font-weight:600;margin-bottom:14px}
+.final h2{font-family:'Cormorant Infant','Noto Serif Devanagari',serif;font-size:clamp(30px,6vw,44px);font-weight:600;margin-bottom:14px}
 .final p{color:#d8c6a5;max-width:40ch;margin:0 auto 30px}
 .final .phone{margin-top:18px;color:#c9b99a;font-size:14px}
 .final .phone a{color:#f0cd8f;text-decoration:none;font-weight:700}
@@ -152,7 +174,7 @@ footer b{color:var(--gold)}
 }
 .ex-head{display:flex;align-items:center;gap:12px;margin-bottom:18px}
 .ex-flag{font-size:26px}
-.ex-lang{font-family:'Cormorant Infant',serif;font-size:22px;font-weight:700;flex:1 1 auto}
+.ex-lang{font-family:'Cormorant Infant','Noto Serif Devanagari',serif;font-size:22px;font-weight:700;flex:1 1 auto}
 .ex .spk{
   flex:0 0 auto;width:44px;height:44px;border-radius:50%;
   background:linear-gradient(135deg,var(--red),var(--red-2));
@@ -186,14 +208,20 @@ footer b{color:var(--gold)}
 </head>
 <body>
 
+<div class="langs" role="group" aria-label="Выбор языка / Language / भाषा चुनें">
+  <button data-lang="ru" type="button">🇷🇺 РУС</button>
+  <button data-lang="en" type="button">🌍 ENG</button>
+  <button data-lang="hi" type="button">🇮🇳 हिंदी</button>
+</div>
+
 <header>
   <div class="wrap">
-    <span class="badge"><span class="dot"></span> Сказка-читалка</span>
-    <h1>Хотите легко заговорить<br>на <span class="red">иностранном языке</span><br>и научить <span class="gold">ребёнка?</span></h1>
-    <p class="lead">Без скучной зубрёжки. Инновационная сказка-читалка ломает стереотипы об обучении: несколько языков сразу, слово за словом, легко, недорого и в рекордные сроки.</p>
+    <span class="badge"><span class="dot"></span> <span data-i18n="badge">Сказка-читалка</span></span>
+    <h1 data-i18n="h1">Хотите легко заговорить<br>на <span class="red">иностранном языке</span><br>и научить <span class="gold">ребёнка?</span></h1>
+    <p class="lead" data-i18n="lead">Без скучной зубрёжки. Инновационная сказка-читалка ломает стереотипы об обучении: несколько языков сразу, слово за словом, легко, недорого и в рекордные сроки.</p>
     <div class="cta-row">
-      <a class="btn" href="#how">Как это работает</a>
-      <a class="btn-ghost" href="https://wa.me/77057255717?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%20%D1%81%D0%BA%D0%B0%D0%B7%D0%BA%D1%83-%D1%87%D0%B8%D1%82%D0%B0%D0%BB%D0%BA%D1%83">Заказать</a>
+      <a class="btn" href="#how"><span data-i18n="btnHow">Как это работает</span></a>
+      <a class="btn-ghost wa-order" href=""><span data-i18n="btnOrder">Заказать</span></a>
     </div>
   </div>
 </header>
@@ -201,20 +229,20 @@ footer b{color:var(--gold)}
 <section id="how" style="padding-top:0">
   <div class="wrap">
     <div class="sec-head rv">
-      <div class="tag">Как работает методика</div>
-      <h2>Всего два простых шага</h2>
-      <p>Никаких непонятных моментов — только ясная система, которую поймёт и ребёнок, и взрослый.</p>
+      <div class="tag" data-i18n="tagHow">Как работает методика</div>
+      <h2 data-i18n="h2How">Всего два простых шага</h2>
+      <p data-i18n="pHow">Никаких непонятных моментов — только ясная система, которую поймёт и ребёнок, и взрослый.</p>
     </div>
     <div class="steps">
       <div class="step rv">
-        <h4>Шаг первый — полный разбор каждой фразы</h4>
-        <p>Сначала вы слушаете профессиональную озвучку, где каждое слово разбирается отдельно: слово на иностранном языке, транскрипция, точный перевод.</p>
-        <span class="pill2">слушаем и разбираем</span>
+        <h4 data-i18n="s1t">Шаг первый — полный разбор каждой фразы</h4>
+        <p data-i18n="s1p">Сначала вы слушаете профессиональную озвучку, где каждое слово разбирается отдельно: слово на иностранном языке, транскрипция, точный перевод.</p>
+        <span class="pill2" data-i18n="s1tag">слушаем и разбираем</span>
       </div>
       <div class="step rv">
-        <h4>Шаг второй — беглое чтение без подглядок</h4>
-        <p>Сразу после разбора вы читаете тот же фрагмент целиком, без перевода. Мозг мгновенно узнаёт все слова — как будто это ваш родной язык.</p>
-        <span class="pill2">читаем свободно</span>
+        <h4 data-i18n="s2t">Шаг второй — беглое чтение без подглядок</h4>
+        <p data-i18n="s2p">Сразу после разбора вы читаете тот же фрагмент целиком, без перевода. Мозг мгновенно узнаёт все слова — как будто это ваш родной язык.</p>
+        <span class="pill2" data-i18n="s2tag">читаем свободно</span>
       </div>
     </div>
   </div>
@@ -223,14 +251,14 @@ footer b{color:var(--gold)}
 <section id="example" style="padding-top:0">
   <div class="wrap">
     <div class="sec-head rv">
-      <div class="tag">А вот как это выглядит</div>
-      <h2>Первое предложение сказки на четырёх языках</h2>
-      <p>Так читается любой отрывок: слово за словом, с транскрипцией и озвучкой. Нажмите кнопку ▶ и послушайте.</p>
+      <div class="tag" data-i18n="tagEx">А вот как это выглядит</div>
+      <h2 data-i18n="h2Ex">Первое предложение сказки на четырёх языках</h2>
+      <p data-i18n="pEx">Так читается любой отрывок: слово за словом, с транскрипцией и озвучкой. Нажмите кнопку ▶ и послушайте.</p>
     </div>
 
     <div class="ex-grid">
       <div class="ex rv">
-        <div class="ex-head"><span class="ex-flag">🇮🇳</span><span class="ex-lang">Хинди</span><button class="spk" data-lang="hi" data-text="एक बार की बात है, एक छोटी लड़की अपनी माँ के साथ एक गाँव में रहती थी।" title="Прослушать">▶</button></div>
+        <div class="ex-head"><span class="ex-flag">🇮🇳</span><span class="ex-lang" data-i18n="langHi">Хинди</span><button class="spk" data-lang="hi" title="Прослушать">▶</button></div>
         <div class="ex-words">
           <div class="w"><span class="w-t">एक</span><span class="w-d">один</span><span class="w-tr">эк</span></div>
           <div class="w"><span class="w-t">बार</span><span class="w-d">раз</span><span class="w-tr">баар</span></div>
@@ -248,11 +276,11 @@ footer b{color:var(--gold)}
           <div class="w"><span class="w-t">में</span><span class="w-d">в</span><span class="w-tr">мэйн</span></div>
           <div class="w"><span class="w-t">रहती थी</span><span class="w-d">жила</span><span class="w-tr">рахти тхи</span></div>
         </div>
-        <p class="ex-full">«एक बार की बात है, एक छोटी लड़की अपनी माँ के साथ एक गाँव में रहती थी.»<br><span>Жила-была одна маленькая девочка со своей мамой в деревне.</span></p>
+        <p class="ex-full">«एक बार की बात है, एक छोटी लड़की अपनी माँ के साथ एक गाँव में रहती थी.»<br><span data-i18n="exTrans">Жила-была одна маленькая девочка со своей мамой в деревне.</span></p>
       </div>
 
       <div class="ex rv">
-        <div class="ex-head"><span class="ex-flag">🇬🇧</span><span class="ex-lang">Английский</span><button class="spk" data-lang="en" data-text="Once upon a time, a little girl lived with her mother in a village." title="Прослушать">▶</button></div>
+        <div class="ex-head"><span class="ex-flag">🇬🇧</span><span class="ex-lang" data-i18n="langEn">Английский</span><button class="spk" data-lang="en" title="Прослушать">▶</button></div>
         <div class="ex-words">
           <div class="w"><span class="w-t">Once upon a time</span><span class="w-d">жила-была</span><span class="w-tr">уонс эпон э тайм</span></div>
           <div class="w"><span class="w-t">a little girl</span><span class="w-d">маленькая девочка</span><span class="w-tr">э литл гёрл</span></div>
@@ -260,11 +288,11 @@ footer b{color:var(--gold)}
           <div class="w"><span class="w-t">with her mother</span><span class="w-d">со своей мамой</span><span class="w-tr">уиз хё мазэ</span></div>
           <div class="w"><span class="w-t">in a village</span><span class="w-d">в деревне</span><span class="w-tr">ин э вилидж</span></div>
         </div>
-        <p class="ex-full">«Once upon a time, a little girl lived with her mother in a village.»<br><span>Жила-была одна маленькая девочка со своей мамой в деревне.</span></p>
+        <p class="ex-full">«Once upon a time, a little girl lived with her mother in a village.»<br><span data-i18n="exTrans">Жила-была одна маленькая девочка со своей мамой в деревне.</span></p>
       </div>
 
       <div class="ex rv">
-        <div class="ex-head"><span class="ex-flag">🇹🇷</span><span class="ex-lang">Турецкий</span><button class="spk" data-lang="tr" data-text="Bir varmış bir yokmuş, bir köyde annesiyle birlikte küçük bir kız yaşarmış." title="Прослушать">▶</button></div>
+        <div class="ex-head"><span class="ex-flag">🇹🇷</span><span class="ex-lang" data-i18n="langTr">Турецкий</span><button class="spk" data-lang="tr" title="Прослушать">▶</button></div>
         <div class="ex-words">
           <div class="w"><span class="w-t">Bir</span><span class="w-d">один</span><span class="w-tr">бир</span></div>
           <div class="w"><span class="w-t">varmış</span><span class="w-d">был</span><span class="w-tr">вармыш</span></div>
@@ -274,11 +302,11 @@ footer b{color:var(--gold)}
           <div class="w"><span class="w-t">küçük bir kız</span><span class="w-d">маленькая девочка</span><span class="w-tr">кючюк бир кыз</span></div>
           <div class="w"><span class="w-t">yaşarmış</span><span class="w-d">жила</span><span class="w-tr">яшармыш</span></div>
         </div>
-        <p class="ex-full">«Bir varmış bir yokmuş, bir köyde annesiyle birlikte küçük bir kız yaşarmış.»<br><span>Жила-была одна маленькая девочка со своей мамой в деревне.</span></p>
+        <p class="ex-full">«Bir varmış bir yokmuş, bir köyde annesiyle birlikte küçük bir kız yaşarmış.»<br><span data-i18n="exTrans">Жила-была одна маленькая девочка со своей мамой в деревне.</span></p>
       </div>
 
       <div class="ex rv">
-        <div class="ex-head"><span class="ex-flag">🇮🇹</span><span class="ex-lang">Итальянский</span><button class="spk" data-lang="it" data-text="C'era una volta una bambina che viveva con sua madre in un villaggio." title="Прослушать">▶</button></div>
+        <div class="ex-head"><span class="ex-flag">🇮🇹</span><span class="ex-lang" data-i18n="langIt">Итальянский</span><button class="spk" data-lang="it" title="Прослушать">▶</button></div>
         <div class="ex-words">
           <div class="w"><span class="w-t">C'era</span><span class="w-d">жила-была</span><span class="w-tr">черра</span></div>
           <div class="w"><span class="w-t">una volta</span><span class="w-d">однажды</span><span class="w-tr">уна вольта</span></div>
@@ -287,7 +315,7 @@ footer b{color:var(--gold)}
           <div class="w"><span class="w-t">con sua madre</span><span class="w-d">со своей мамой</span><span class="w-tr">кон суа мадре</span></div>
           <div class="w"><span class="w-t">in un villaggio</span><span class="w-d">в деревне</span><span class="w-tr">ин ун вилладжо</span></div>
         </div>
-        <p class="ex-full">«C'era una volta una bambina che viveva con sua madre in un villaggio.»<br><span>Жила-была одна маленькая девочка со своей мамой в деревне.</span></p>
+        <p class="ex-full">«C'era una volta una bambina che viveva con sua madre in un villaggio.»<br><span data-i18n="exTrans">Жила-была одна маленькая девочка со своей мамой в деревне.</span></p>
       </div>
     </div>
   </div>
@@ -296,29 +324,29 @@ footer b{color:var(--gold)}
 <section style="padding-top:0">
   <div class="wrap">
     <div class="sec-head rv">
-      <div class="tag">Почему эта книга нужна именно вам</div>
-      <h2>Четыре причины попробовать</h2>
+      <div class="tag" data-i18n="tagBen">Почему эта книга нужна именно вам</div>
+      <h2 data-i18n="h2Ben">Четыре причины попробовать</h2>
     </div>
     <div class="ben">
       <div class="ben-card rv">
         <span class="ico">🌍</span>
-        <h4>Сразу несколько языков</h4>
-        <p>Изучайте популярные мировые языки параллельно — по одному увлекательному сюжету.</p>
+        <h4 data-i18n="b1t">Сразу несколько языков</h4>
+        <p data-i18n="b1p">Изучайте популярные мировые языки параллельно — по одному увлекательному сюжету.</p>
       </div>
       <div class="ben-card rv">
         <span class="ico">👨‍👩‍👧</span>
-        <h4>Двойная польза</h4>
-        <p>Отличный старт для самых маленьких и для взрослых, которые давно хотели начать.</p>
+        <h4 data-i18n="b2t">Двойная польза</h4>
+        <p data-i18n="b2p">Отличный старт для самых маленьких и для взрослых, которые давно хотели начать.</p>
       </div>
       <div class="ben-card rv">
         <span class="ico">🎙️</span>
-        <h4>Идеальное произношение</h4>
-        <p>Профессиональное аудиосопровождение ставит чистый акцент с первых минут.</p>
+        <h4 data-i18n="b3t">Идеальное произношение</h4>
+        <p data-i18n="b3p">Профессиональное аудиосопровождение ставит чистый акцент с первых минут.</p>
       </div>
       <div class="ben-card rv">
         <span class="ico">⚡</span>
-        <h4>Супер скорость и экономия</h4>
-        <p>Забудьте о дорогих репетиторах. Понятный результат виден уже с первой сказки.</p>
+        <h4 data-i18n="b4t">Супер скорость и экономия</h4>
+        <p data-i18n="b4p">Забудьте о дорогих репетиторах. Понятный результат виден уже с первой сказки.</p>
       </div>
     </div>
   </div>
@@ -328,30 +356,182 @@ footer b{color:var(--gold)}
   <div class="wrap">
     <div class="price rv">
       <span class="fire">🔥</span>
-      <h3>Специальная цена первой партии</h3>
-      <p>Количество экземпляров по промо-цене ограничено. Успейте забрать свою сказку-читалку.</p>
+      <h3 data-i18n="priceT">Специальная цена первой партии</h3>
+      <p data-i18n="priceP">Количество экземпляров по промо-цене ограничено. Успейте забрать свою сказку-читалку.</p>
       <div><span class="old">3 000 ₸</span><span class="new">1 990 ₸</span></div>
-      <p style="margin-top:18px;font-size:13px;color:#a08a63">цена указана за одну сказку с полной озвучкой</p>
+      <p style="margin-top:18px;font-size:13px;color:#a08a63" data-i18n="priceNote">цена указана за одну сказку с полной озвучкой</p>
     </div>
   </div>
 </section>
 
 <section style="padding-top:0">
   <div class="wrap final rv">
-    <h2>Заберите свою сказку-читалку и начните говорить уже сегодня</h2>
-    <p>Увлекательный сюжет, захватывающие иллюстрации и метод, который действительно работает.</p>
-    <a class="btn" href="https://wa.me/77057255717?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%20%D1%81%D0%BA%D0%B0%D0%B7%D0%BA%D1%83-%D1%87%D0%B8%D1%82%D0%B0%D0%BB%D0%BA%D1%83">Заказать в WhatsApp</a>
-    <div class="phone">или позвоните: <a href="tel:+77057255717">+7 705 725 57 17</a></div>
+    <h2 data-i18n="finalT">Заберите свою сказку-читалку и начните говорить уже сегодня</h2>
+    <p data-i18n="finalP">Увлекательный сюжет, захватывающие иллюстрации и метод, который действительно работает.</p>
+    <a class="btn wa-order" href=""><span data-i18n="waBtn">Заказать в WhatsApp</span></a>
+    <div class="phone"><span data-i18n="orCall">или позвоните:</span> <a href="tel:+77057255717">+7 705 725 57 17</a></div>
   </div>
 </section>
 
 <footer>
-  <div class="wrap">
-    Сказка-читалка · <b>учу слова — играю</b> · сделано с любовью 💛
-  </div>
+  <div class="wrap" data-i18n="footer">Сказка-читалка · <b>учу слова — играю</b> · сделано с любовью 💛</div>
 </footer>
 
 <script>
+const I18N = {
+  ru: {
+    badge: 'Сказка-читалка',
+    h1: 'Хотите легко заговорить<br>на <span class="red">иностранном языке</span><br>и научить <span class="gold">ребёнка?</span>',
+    lead: 'Без скучной зубрёжки. Инновационная сказка-читалка ломает стереотипы об обучении: несколько языков сразу, слово за словом, легко, недорого и в рекордные сроки.',
+    btnHow: 'Как это работает',
+    btnOrder: 'Заказать',
+    tagHow: 'Как работает методика',
+    h2How: 'Всего два простых шага',
+    pHow: 'Никаких непонятных моментов — только ясная система, которую поймёт и ребёнок, и взрослый.',
+    s1t: 'Шаг первый — полный разбор каждой фразы',
+    s1p: 'Сначала вы слушаете профессиональную озвучку, где каждое слово разбирается отдельно: слово на иностранном языке, транскрипция, точный перевод.',
+    s1tag: 'слушаем и разбираем',
+    s2t: 'Шаг второй — беглое чтение без подглядок',
+    s2p: 'Сразу после разбора вы читаете тот же фрагмент целиком, без перевода. Мозг мгновенно узнаёт все слова — как будто это ваш родной язык.',
+    s2tag: 'читаем свободно',
+    tagEx: 'А вот как это выглядит',
+    h2Ex: 'Первое предложение сказки на четырёх языках',
+    pEx: 'Так читается любой отрывок: слово за словом, с транскрипцией и озвучкой. Нажмите кнопку ▶ и послушайте.',
+    langHi: 'Хинди', langEn: 'Английский', langTr: 'Турецкий', langIt: 'Итальянский',
+    exTrans: 'Жила-была одна маленькая девочка со своей мамой в деревне.',
+    tagBen: 'Почему эта книга нужна именно вам',
+    h2Ben: 'Четыре причины попробовать',
+    b1t: 'Сразу несколько языков',
+    b1p: 'Изучайте популярные мировые языки параллельно — по одному увлекательному сюжету.',
+    b2t: 'Двойная польза',
+    b2p: 'Отличный старт для самых маленьких и для взрослых, которые давно хотели начать.',
+    b3t: 'Идеальное произношение',
+    b3p: 'Профессиональное аудиосопровождение ставит чистый акцент с первых минут.',
+    b4t: 'Супер скорость и экономия',
+    b4p: 'Забудьте о дорогих репетиторах. Понятный результат виден уже с первой сказки.',
+    priceT: 'Специальная цена первой партии',
+    priceP: 'Количество экземпляров по промо-цене ограничено. Успейте забрать свою сказку-читалку.',
+    priceNote: 'цена указана за одну сказку с полной озвучкой',
+    finalT: 'Заберите свою сказку-читалку и начните говорить уже сегодня',
+    finalP: 'Увлекательный сюжет, захватывающие иллюстрации и метод, который действительно работает.',
+    waBtn: 'Заказать в WhatsApp',
+    orCall: 'или позвоните:',
+    footer: 'Сказка-читалка · <b>учу слова — играю</b> · сделано с любовью 💛',
+    wa: 'Здравствуйте! Хочу заказать сказку-читалку'
+  },
+  en: {
+    badge: 'Fairy-Tale Reader',
+    h1: 'Want to easily speak<br>a <span class="red">foreign language</span><br>and teach your <span class="gold">child?</span>',
+    lead: 'No boring cramming. This innovative fairy-tale reader breaks the stereotypes of learning: several languages at once, word by word, easily, affordably and in record time.',
+    btnHow: 'How it works',
+    btnOrder: 'Order',
+    tagHow: 'How the method works',
+    h2How: 'Just two simple steps',
+    pHow: 'No confusion — just a clear system that both a child and an adult will understand.',
+    s1t: 'Step one — full breakdown of every phrase',
+    s1p: 'First, you listen to professional audio where every word is broken down separately: the word in the foreign language, transcription, exact translation.',
+    s1tag: 'listen and break down',
+    s2t: 'Step two — fluent reading, no peeking',
+    s2p: 'Right after the breakdown you read the same passage in full, without translation. Your brain instantly recognizes every word — as if it were your native language.',
+    s2tag: 'read fluently',
+    tagEx: 'And here is how it looks',
+    h2Ex: 'The first sentence of the tale in four languages',
+    pEx: 'This is how any passage is read: word by word, with transcription and audio. Press ▶ and listen.',
+    langHi: 'Hindi', langEn: 'English', langTr: 'Turkish', langIt: 'Italian',
+    exTrans: 'Once upon a time, a little girl lived with her mother in a village.',
+    tagBen: 'Why you need this book',
+    h2Ben: 'Four reasons to try it',
+    b1t: 'Several languages at once',
+    b1p: 'Learn popular world languages in parallel — through one engaging story.',
+    b2t: 'Double benefit',
+    b2p: 'A perfect start for the little ones and for adults who always wanted to begin.',
+    b3t: 'Perfect pronunciation',
+    b3p: 'Professional audio gives a clean accent from the very first minutes.',
+    b4t: 'Super speed and savings',
+    b4p: 'Forget expensive tutors. Visible results from the very first tale.',
+    priceT: 'Special price for the first batch',
+    priceP: 'The number of copies at the promo price is limited. Grab your fairy-tale reader in time.',
+    priceNote: 'price is for one tale with full audio',
+    finalT: 'Get your fairy-tale reader and start speaking today',
+    finalP: 'An engaging story, captivating illustrations and a method that truly works.',
+    waBtn: 'Order on WhatsApp',
+    orCall: 'or call:',
+    footer: 'Fairy-Tale Reader · <b>learn words — play</b> · made with love 💛',
+    wa: "Hello! I'd like to order the fairy-tale reader"
+  },
+  hi: {
+    badge: 'परी-कथा पाठक',
+    h1: 'क्या आप आसानी से <span class="red">विदेशी भाषा</span> बोलना<br>और अपने <span class="gold">बच्चे</span> को सिखाना चाहते हैं?',
+    lead: 'उबाऊ रटने के बिना। यह नवीन परी-कथा पाठक सीखने की धारणाओं को तोड़ता है: कई भाषाएँ एक साथ, शब्द दर शब्द, आसानी से, किफ़ायती और रिकॉर्ड समय में।',
+    btnHow: 'यह कैसे काम करता है',
+    btnOrder: 'ऑर्डर करें',
+    tagHow: 'तरीका कैसे काम करता है',
+    h2How: 'केवल दो सरल कदम',
+    pHow: 'कोई उलझन नहीं — बस एक स्पष्ट प्रणाली जिसे बच्चा और वयस्क दोनों समझेंगे।',
+    s1t: 'चरण एक — हर वाक्यांश का पूरा विश्लेषण',
+    s1p: 'पहले आप पेशेवर ऑडियो सुनते हैं जहाँ हर शब्द अलग से समझाया जाता है: विदेशी भाषा में शब्द, ट्रांसक्रिप्शन, सटीक अनुवाद।',
+    s1tag: 'सुनें और समझें',
+    s2t: 'चरण दो — बिना झाँके धाराप्रवाह पढ़ना',
+    s2p: 'विश्लेषण के तुरंत बाद आप उसी अंश को बिना अनुवाद के पूरा पढ़ते हैं। दिमाग़ हर शब्द को तुरंत पहचान लेता है — जैसे कि यह आपकी मातृभाषा हो।',
+    s2tag: 'धाराप्रवाह पढ़ें',
+    tagEx: 'और देखिए यह कैसे दिखता है',
+    h2Ex: 'कहानी का पहला वाक्य चार भाषाओं में',
+    pEx: 'किसी भी अंश को ऐसे पढ़ा जाता है: शब्द दर शब्द, ट्रांसक्रिप्शन और ऑडियो के साथ। ▶ दबाएँ और सुनें।',
+    langHi: 'हिंदी', langEn: 'अंग्रेज़ी', langTr: 'तुर्की', langIt: 'इतालवी',
+    exTrans: 'एक बार की बात है, एक छोटी लड़की अपनी माँ के साथ एक गाँव में रहती थी।',
+    tagBen: 'यह किताब आपको क्यों चाहिए',
+    h2Ben: 'आज़माने के चार कारण',
+    b1t: 'कई भाषाएँ एक साथ',
+    b1p: 'लोकप्रिय विश्व भाषाओं को समानांतर में सीखें — एक दिलचस्प कहानी के माध्यम से।',
+    b2t: 'दोहरा लाभ',
+    b2p: 'छोटों के लिए एक शानदार शुरुआत और उन वयस्कों के लिए जो हमेशा शुरू करना चाहते थे।',
+    b3t: 'बेहतरीन उच्चारण',
+    b3p: 'पेशेवर ऑडियो पहले ही मिनटों से साफ़ उच्चारण स्थापित करता है।',
+    b4t: 'सुपर गति और बचत',
+    b4p: 'महँगे ट्यूटर्स को भूल जाइए। पहली कहानी से ही स्पष्ट परिणाम दिखते हैं।',
+    priceT: 'पहली बैच के लिए विशेष मूल्य',
+    priceP: 'प्रोमो कीमत पर प्रतियों की संख्या सीमित है। समय रहते अपना परी-कथा पाठक पाएँ।',
+    priceNote: 'कीमत पूर्ण ऑडियो वाली एक कहानी के लिए है',
+    finalT: 'अपना परी-कथा पाठक लें और आज ही बोलना शुरू करें',
+    finalP: 'एक रोचक कहानी, आकर्षक चित्र और एक तरीका जो वास्तव में काम करता है।',
+    waBtn: 'व्हाट्सएप पर ऑर्डर करें',
+    orCall: 'या कॉल करें:',
+    footer: 'परी-कथा पाठक · <b>शब्द सीखें — खेलते हुए</b> · प्रेम से बनाया गया 💛',
+    wa: 'नमस्ते! मुझे परी-कथा पाठक ऑर्डर करना है'
+  }
+};
+
+let cur = 'ru';
+try { cur = localStorage.getItem('promo_lang') || 'ru'; } catch (e) {}
+
+const TITLES = {
+  ru: 'Сказка-читалка — как это работает',
+  en: 'Fairy-Tale Reader — how it works',
+  hi: 'परी-कथा पाठक — यह कैसे काम करता है'
+};
+
+function apply(lang){
+  cur = lang;
+  document.documentElement.lang = lang;
+  const t = I18N[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const k = el.dataset.i18n;
+    if (t[k] != null) el.innerHTML = t[k];
+  });
+  document.querySelectorAll('.wa-order').forEach(a => {
+    a.href = 'https://wa.me/77057255717?text=' + encodeURIComponent(t.wa);
+  });
+  document.querySelectorAll('.langs button').forEach(b =>
+    b.classList.toggle('active', b.dataset.lang === lang));
+  document.title = TITLES[lang];
+  try { localStorage.setItem('promo_lang', lang); } catch (e) {}
+}
+
+document.querySelectorAll('.langs button').forEach(b =>
+  b.addEventListener('click', () => apply(b.dataset.lang)));
+
+apply(cur);
+
 const io = new IntersectionObserver((es) => {
   es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
 }, { threshold: .15 });
